@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+ Search Result
+{% endblock %}
+{% block stylesheet %}  {% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+<section>
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-12 padding-right">
+					<h2 class="title text-center" style="color: #32bebb">Search Result </h2>
+					<h4 class="title text-center" style="color: #32bebb"><a href="{% url 'searchTable' %}">Filter</a> </h4>
+				</div>
+				<div class="col-sm-12 padding-right">
+
+                <!--No result message-->
+                {% if messages %}
+                    <ul class="messages">
+                    {% for k in messages %}
+                      <h4 style="color: red"> {{ k }}</h4>
+
+                    {% endfor %}
+                    </ul>
+
+                {% endif %}
+                <!--END:  No result message-->
+
+                <!--Search Result-->
+
+                   {% if sr %}
+
+                   {% for k in sr %}
+
+					<div class="row" >
+						<div class="search_items">
+							<div class="col-sm-3">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="{{ k.product_image }}" alt="" />
+											</div>
+
+									</div>
+								</div>
+							</div>
+                            <hr>
+							<div class="col-sm-9">
+								<div id="search_description">
+                                    <h4 style="color: #32bebb"> {{ k.vendor_name }}  </h4> Selling
+									<h4><b>{{ k.product_name }}</b></h4><br>
+
+									<h4 style="background-color: #32bebb;
+									color: white;
+                                width: 16%"> Price: {{ k.product_price }} &#2547 </h4> <br>
+
+
+                                    <h4><a href="{{ k.product_url }}">Details</a> </h4>
+								</div>
+							</div>
+                            <hr>
+						</div>
+
+					</div>
+
+
+
+                       {% endfor %}
+                    {% endif %}
+
+                <!--END:  Search Result-->
+
+
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</section>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

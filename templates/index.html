@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+ Home
+{% endblock %}
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+	
+<section id="slider"><!--slider-->
+<div class="container" style="width: 100%; background-color:black;>
+<div class="row" >
+<div class="col-sm-9 padding-right">
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+            {% for p in post|slice:":10" %}
+            {% if forloop.counter == 1 %}
+
+                <div class="item active">
+                {% else %}
+                <div class="item">
+
+                {% endif %}
+                    <img src="{{ p.product_image }}" alt="Image" width="460" height="345">
+              <div class="carousel-caption">
+               <a href="{{ p.product_url }}"> <h3>{{ p.product_name|truncatewords:5 }}</h3></a>
+                <p>{{ p.product_price }} &#2547; </p>
+                <p>{{ p.vendor_name}}</p>
+              </div>
+                </div>
+                {% endfor %}
+                </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+</section><!--/slider-->
+	
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+
+                <div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="#">Categories</a>
+        <div id="close-sidebar">
+{#          <i class="fas fa-times"></i>#}
+        </div>
+      </div>
+
+
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>General</span>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+{#              <i class="fa fa-tachometer-alt"></i>#}
+              <span>Hotels</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Dashboard 1
+                    <span class="badge badge-pill badge-success">Pro</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">Dashboard 2</a>
+                </li>
+                <li>
+                  <a href="#">Dashboard 3</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <span>Air Ticket</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Products
+
+                  </a>
+                </li>
+                <li>
+                  <a href="#">Orders</a>
+                </li>
+                <li>
+                  <a href="#">Credit cart</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+{#              <i class="far fa-gem"></i>#}
+              <span>Fashion</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">General</a>
+                </li>
+                <li>
+                  <a href="#">Panels</a>
+                </li>
+                <li>
+                  <a href="#">Tables</a>
+                </li>
+                <li>
+                  <a href="#">Icons</a>
+                </li>
+                <li>
+                  <a href="#">Forms</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+{#              <i class="fa fa-chart-line"></i>#}
+              <span>Man</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Pie chart</a>
+                </li>
+                <li>
+                  <a href="#">Line chart</a>
+                </li>
+                <li>
+                  <a href="#">Bar chart</a>
+                </li>
+                <li>
+                  <a href="#">Histogram</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+{#              <i class="fa fa-globe"></i>#}
+              <span>Women</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="#">Google maps</a>
+                </li>
+                <li>
+                  <a href="#">Open street map</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="header-menu">
+            <span>Gadget</span>
+          </li>
+          <li>
+            <a href="#">
+{#              <i class="fa fa-book"></i>#}
+              <span>Laptop</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Mobile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Gaming</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="#">
+{#        <i class="fa fa-bell"></i>#}
+        <span class="badge badge-pill badge-warning notification">3</span>
+      </a>
+      <a href="#">
+{#        <i class="fa fa-envelope"></i>#}
+        <span class="badge badge-pill badge-success notification">7</span>
+      </a>
+      <a href="#">
+{#        <i class="fa fa-cog"></i>#}
+        <span class="badge-sonar"></span>
+      </a>
+      <a href="#">
+{#        <i class="fa fa-power-off"></i>#}
+      </a>
+    </div>
+  </nav>
+  <!-- sidebar-wrapper  -->
+
+  <!-- page-content" -->
+</div>
+
+</div>
+
+<div class="col-sm-9 padding-right">
+
+
+                <div class="features_items"><!--products --- features_items-->
+						<h2 class="title text-center">Recommended for you</h2>
+                        {% for p in post|slice:":12" %}
+
+						<div class="col-sm-4", id="items">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center  shadow p-3 mb-5 bg-white rounded" style="
+										border-style: solid;
+										border-width:0.1px;
+										 color: #E0E0E0;">
+                                            <a href="{{ p.product_url }}"><img src="{{ p.product_image }}" alt="" /></a>
+
+											<h6 style="color: #666663"> {{ p.product_price }}  &#2547; </h6>
+										<a href="{{ p.product_url }}">	<p>{{ p.product_name|truncatewords:5 }}</p></a>
+
+                                      <a href="#" style="color: #06c1bc;"><span class="glyphicon glyphicon-heart-empty"></span> Like</a>
+                                             <a href="{{ p.product_url }}" style="color: #06c1bc; padding-left: 10px"><span class="glyphicon glyphicon-eye-open"></span> Detail</a>
+										</div>
+
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+{#										<li><a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-heart"></span> Like</a></li>#}
+{#										<li><a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-thumbs-down"></span> Unlike</a></li>#}
+									</ul>
+								</div>
+							</div>
+						</div>
+
+
+                         {% endfor %}
+
+					</div><!--Recommended Products-->
+                    <hr>
+            <div class="features_items"><!--products --- features_items-->
+						<h2 class="title text-center">Book Hotels</h2>
+
+
+                        {% for p in post|slice:":100" %}
+                            {% if p.product_category == 'Hotel' %}
+
+
+						<div class="col-sm-4", id="items">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center  shadow p-3 mb-5 bg-white rounded" style="
+										border-style: solid;
+										border-width:0.1px;
+										 color: #E0E0E0;">
+                                            <a href="{{ p.product_url }}"><img src="{{ p.product_image }}" alt="" /></a>
+
+											<h6 style="color: #666663"> {{ p.product_price }}  &#2547; </h6>
+										<a href="{{ p.product_url }}">	<p>{{ p.product_name|truncatewords:5 }}</p></a>
+
+                                      <a href="#" style="color: #06c1bc;"><span class="glyphicon glyphicon-heart-empty"></span> Like</a>
+                                             <a href="{{ p.product_url }}" style="color: #06c1bc; padding-left: 10px"><span class="glyphicon glyphicon-eye-open"></span> Detail</a>
+										</div>
+
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+{#										<li><a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-heart"></span> Like</a></li>#}
+{#										<li><a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-thumbs-down"></span> Unlike</a></li>#}
+									</ul>
+								</div>
+							</div>
+						</div>
+
+
+                {% endif %}
+                         {% endfor %}
+
+
+
+					</div>
+
+                    <hr>
+
+					<div class="features_items"><!--products --- features_items-->
+						<h2 class="title text-center">Your Product Feed</h2>
+                        {% for p in post|slice:":18" %}
+
+						<div class="col-sm-4", id="items">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center  shadow p-3 mb-5 bg-white rounded" style="
+										border-style: solid;
+										border-width:0.1px;
+										 color: #E0E0E0;">
+                                            <a href="{{ p.product_url }}"><img src="{{ p.product_image }}" alt="" /></a>
+
+											<h6 style="color: #666663"> {{ p.product_price }}  &#2547; </h6>
+										<a href="{{ p.product_url }}">	<p>{{ p.product_name|truncatewords:5 }}</p></a>
+
+                                      <a href="#" style="color: #06c1bc;"><span class="glyphicon glyphicon-heart-empty"></span> Like</a>
+                                             <a href="{{ p.product_url }}" style="color: #06c1bc; padding-left: 10px"><span class="glyphicon glyphicon-eye-open"></span> Detail</a>
+										</div>
+
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+{#										<li><a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-heart"></span> Like</a></li>#}
+{#										<li><a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-thumbs-down"></span> Unlike</a></li>#}
+									</ul>
+								</div>
+							</div>
+						</div>
+
+
+                         {% endfor %}
+
+					</div><!--features_items-->
+
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+
+
+
+	

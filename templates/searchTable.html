@@ -1,0 +1,96 @@
+
+
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+  <form method="get">
+    <div class="well">
+      <h4 style="margin-top: 0">Filter</h4>
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.product_name.label_tag }}
+          {% render_field filter.form.product_name class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.product_price.label_tag }}
+          {% render_field filter.form.product_price class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.vendor_name.label_tag }}
+          {% render_field filter.form.vendor_name class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.product_price__gt.label_tag }}
+          {% render_field filter.form.product_price__gt class="form-control" %}
+        </div>
+      <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.product_price__lt.label_tag }}
+          {% render_field filter.form.product_price__lt class="form-control" %}
+        </div>
+
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+    </div>
+  </form>
+
+  <table class="table table-hover table-striped table-bordered table-dark">
+    <thead style="background-color: #3e4e6f; color: white" >
+      <tr>
+        <th>Image</th>
+        <th>Product Name</th>
+
+
+        <th>Price</th>
+
+
+        <th>Vendor</th>
+
+      </tr>
+    </thead>
+    <tbody >
+
+      {% for lap in filter.qs %}
+        <tr >
+          <td class="col-sm-3">
+              <div >
+								<div class="product-image-wrapper">
+									<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="{{ lap.product_image }}" alt=""  />
+											</div>
+
+									</div>
+								</div>
+             </div>
+          </td>
+           <td class="col-sm-3">
+
+                     <h5><a href="{{ lap.product_url }}">{{ lap.product_name }}</a> </h5>
+                      <br>
+{#                      <h5 class="btn btn-outline-secondary"><a href="{{ k.product_url }}" >See Details</a> </h5>#}
+                     <a href="{{ lap.product_url }}" class="btn btn-secondary" role="button" aria-pressed="true"
+
+                     style="background-color: #3e4e6f; color: white">See Details</a>
+
+                  </td>
+
+          <td class="col-sm-3">{{ lap.product_price }} &#2547;</td>
+          <td class="col-sm-3">{{ lap.vendor_name }}</td>
+
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No data</td>
+        </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+{% endblock %}
+{% block script %}
+
+{% endblock %}
