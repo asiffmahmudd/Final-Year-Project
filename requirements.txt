@@ -24,7 +24,7 @@ olefile==0.45.1
 openpyxl==2.5.14
 Pillow==5.2.0
 pytz==2018.9
-PyYAML==3.13
+PyYAML==5.1
 six==1.12.0
 tablib==0.12.1
 uni-slugify==0.1.4
