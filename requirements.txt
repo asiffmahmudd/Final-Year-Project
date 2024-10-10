@@ -11,7 +11,7 @@ django-infinite-scroll-pagination==0.2.0
 django-js-asset==1.2.1
 django-machina==0.7.1
 django-mptt==0.9.1
-django-spirit==0.7.0
+django-spirit==0.12.3
 django-tables2==2.0.4
 django-widget-tweaks==1.4.3
 et-xmlfile==1.0.1
@@ -24,7 +24,7 @@ olefile==0.45.1
 openpyxl==2.5.14
 Pillow==9.3.0
 pytz==2018.9
-PyYAML==3.13
+PyYAML==5.4
 six==1.12.0
 tablib==0.12.1
 uni-slugify==0.1.4
